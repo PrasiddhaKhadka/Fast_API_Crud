@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Uuid
+from sqlalchemy import Column, String, Uuid, Text, DECIMAL
 from .database import Base
 
 class Product(Base):
@@ -10,9 +10,9 @@ class Product(Base):
         self.price = price
     
     id = Column(Uuid, primary_key=True,index= True)
-    name = Column(String)
-    desc = Column(String)
-    price = Column(Integer)
+    name = Column(String(255),nullable=False)
+    desc = Column(Text)
+    price = Column(DECIMAL(10,2))
 
 
 
