@@ -1,13 +1,20 @@
 from fastapi import FastAPI
 from products.schemas import Product
+from products.database import engine
+from . import models
+
 
 app = FastAPI()
 
 
-@app.api_route('/products', methods=['GET','POST'])
-async def products(products: Product | None = None):
-    if products:
-        return {'message': 'Product created'}
-    else:
-        return {'message': 'List of Products'}
-    
+models.Base.metadata.create_all(bind=engine)
+
+
+
+@app.get('/products')
+async def get_products():
+    return {'message': 'List of Products'}
+
+@app.post('/products')
+async def create_product(product: Product):
+    return {'message': 'Product created'}
