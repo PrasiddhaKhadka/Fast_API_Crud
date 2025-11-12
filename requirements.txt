@@ -3,3 +3,5 @@ sqlalchemy
 uvicorn
 pydantic
 mysql
+passlib
+bcrypt
