@@ -6,3 +6,9 @@ class Product(BaseModel):
     name: str
     desc: str
     price: float
+
+
+class DisplayProduct(BaseModel):
+    name: str
+    desc: str
+    price: float
