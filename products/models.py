@@ -30,3 +30,16 @@ class Seller(Base):
     name = Column(String(255),nullable=False)
     password = Column(String(255),nullable=False)
     products = relationship("Product", back_populates="seller")
+
+
+class Login(Base):
+    __tablename__ = 'login'
+    def __init__(self, id, name, password):
+        self.id = id
+        self.name = name
+        self.password = password
+
+    
+    id = Column(Uuid, primary_key=True,index= True)
+    name = Column(String(255),nullable=False)
+    password = Column(String(255),nullable=False)

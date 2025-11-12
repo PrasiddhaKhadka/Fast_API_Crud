@@ -7,7 +7,7 @@ from products.schemas import Product,DisplayProduct, Seller
 from products.database import engine, SessionLocal
 from .database import get_db
 from . import models
-from . routers import product
+from . routers import product, login
 import uuid
 
 app = FastAPI(
@@ -29,6 +29,7 @@ app = FastAPI(
 )
 
 app.include_router(product.router)
+app.include_router(login.router)
 
 models.Base.metadata.create_all(bind=engine)
 

@@ -31,5 +31,7 @@ class Seller(BaseModel):
     password: str
 
 
-
+class Login(BaseModel):
+    name: str
+    password: str
     
